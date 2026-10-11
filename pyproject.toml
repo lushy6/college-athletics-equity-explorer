@@ -1,0 +1,15 @@
+[project]
+name = "college-athletics-equity-explorer"
+version = "0.1.0"
+description = "Traceable local exploration of EADA participation and game-day expenses"
+requires-python = ">=3.12"
+dependencies = [
+  "openpyxl>=3.1.5,<4",
+  "streamlit>=1.40,<2",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

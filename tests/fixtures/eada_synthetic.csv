@@ -1,0 +1,6 @@
+unitid,institution_name,state_cd,classification_name,sector_name,SPORTSCODE,Sports,PARTIC_MEN,PARTIC_WOMEN,OPEXPPERPART_MEN,OPEXPPERTEAM_MEN,OPEXPPERPART_WOMEN,OPEXPPERTEAM_WOMEN
+100001,Example University,AL,NCAA Division I,Public,2,Basketball,10,12,100,1000,150,1800
+100002,Example College,AL,NCAA Division II,Private,2,Basketball,0,,0,0,0,0
+100003,Example Institute,GA,NCAA Division III,Private,2,Basketball,oops,5,N/A,D,20,100
+100001,Example University,AL,NCAA Division I,Public,2,Basketball,10,12,100,1000,150,1800
+bad-id,Broken School,AL,NCAA Division I,Public,2,Basketball,9,9,10,90,10,90

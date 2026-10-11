@@ -1,0 +1,11 @@
+{
+  "collection_year": 2024,
+  "downloaded_on": "2026-10-11",
+  "file": "EADA_2023-2024.zip",
+  "url": "https://ope.ed.gov/athletics/api/dataFiles/file?fileName=EADA_2023-2024.zip",
+  "sha256": "F7294DCCAA9D6BBB5290D84A97548B17AA2F4277D2C90C2D077BC1B2C6B4B4CF",
+  "bytes": 11849898,
+  "workbook_inside_zip": "schools.xlsx",
+  "survey_guide": "https://surveys.ope.ed.gov/athletics2024/wwwroot/documents/2024_EADA_Users_Guide.pdf",
+  "note": "The EADA download is a post-collection snapshot; later portal corrections may differ. Raw files are not redistributed."
+}
