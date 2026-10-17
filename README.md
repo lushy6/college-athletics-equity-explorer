@@ -1,5 +1,28 @@
 # College Athletics Equity Explorer
 
+[![Data and app checks](https://github.com/lushy6/college-athletics-equity-explorer/actions/workflows/ci.yml/badge.svg)](https://github.com/lushy6/college-athletics-equity-explorer/actions/workflows/ci.yml)
+
+**Python · SQLite · Streamlit · openpyxl · source-row lineage**
+
+![Fictional example: zero and missing participants stay distinct](docs/preview.png)
+
+## Quick start with pip
+
+Python 3.12+; no account or downloaded dataset needed:
+
+```sh
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+python -m pip install . pytest
+python -m athletics_etl.cli import --input tests/fixtures/eada_synthetic.csv --year 2024
+python -m streamlit run app.py
+```
+
+The fixture intentionally includes a duplicate and an invalid ID: expect 5 input rows, 6 normalized category rows, 2 rejected rows, and 3 institutions. This demonstrates validation, not an official-data import failure.
+
+**Verified October 17, 2026:** package installation and 9 tests passed. Checks cover CSV/XLSX imports, zero versus blank values, ratios, source lineage, malformed row widths, and an empty-database screen. The real-data implementation currently covers one collection year; three-year comparison remains future work.
+
 A local, read-only explorer of reported college sport participation and game-day operating expenses. It helps a student or reporter see a school/sport/category figure, compare peers from the same EADA collection, and trace every displayed number to a workbook row. It does not score Title IX compliance or measure an athletics department's entire budget.
 
 ## Run with the synthetic fixture

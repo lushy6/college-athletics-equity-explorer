@@ -29,6 +29,8 @@ def _source_rows(path: Path) -> Iterator[tuple[int, dict[str, Any]]]:
             columns = reader.fieldnames or []
             _check_columns(columns)
             for number, row in enumerate(reader, start=2):
+                if None in row or any(value is None for value in row.values()):
+                    raise SchemaError(f"row {number}: column count does not match the header")
                 yield number, row
     elif path.suffix.lower() == ".xlsx":
         workbook = load_workbook(path, read_only=True, data_only=True)

@@ -7,6 +7,21 @@ from openpyxl import Workbook
 FIXTURE = Path(__file__).parent / "fixtures" / "eada_synthetic.csv"
 
 
+@pytest.mark.parametrize("change", ["extra", "missing"])
+def test_irregular_csv_rows_are_rejected_instead_of_losing_columns(tmp_path, change):
+    import csv
+    from athletics_etl.import_eada import SchemaError, import_year
+
+    with FIXTURE.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.reader(handle))
+    rows[1] = rows[1] + ["unexpected"] if change == "extra" else rows[1][:-1]
+    path = tmp_path / "malformed.csv"
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        csv.writer(handle).writerows(rows[:2])
+    with pytest.raises(SchemaError, match="column count"):
+        import_year(path, 2024)
+
+
 def test_import_keeps_source_rows_and_distinguishes_numeric_states():
     from athletics_etl.import_eada import import_year
 

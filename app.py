@@ -30,6 +30,10 @@ with closing(sqlite3.connect(db)) as connection:
         "SELECT DISTINCT sport_code, sport_name FROM eada ORDER BY sport_name, sport_code"
     ).fetchall()
 
+if not years:
+    st.info("The database has no accepted records. Import a valid EADA collection or the synthetic fixture first.")
+    st.stop()
+
 year = st.selectbox("Collection year", years)
 institution = st.selectbox(
     "Institution", institutions, format_func=lambda row: f"{row[1]} ({row[0]})"
